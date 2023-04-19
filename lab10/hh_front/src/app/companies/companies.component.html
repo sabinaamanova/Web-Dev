@@ -1,0 +1,46 @@
+<h1>Companies</h1>
+
+<style>
+  h1 { 
+    color:aqua;
+    font-family: monospace;
+  }
+  #cha{
+    color: rgb(227, 30, 194);
+    font-family: "Helvetica", sans-serif;
+  }
+  #chu{
+    color: rgb(145, 237, 188);
+    font-family: cursive;
+  }
+  </style>
+<fieldset>
+  <div>
+    <label id="cha" >Company name: </label>
+    <input type="text" [(ngModel)]="newCompanyName">
+  </div>
+  <div>
+    <label id="cha">Company description: </label>
+    <input type="text" [(ngModel)]="newCompanyDesc">
+  </div>
+  <div>
+    <label id="chu">Company city: </label>
+    <input type="text" [(ngModel)]="newCompanyCity">
+  </div>
+  <div>
+    <label id="chu">Company address: </label>
+    <input type="text" [(ngModel)]="newCompanyAddress">
+  </div>
+  <button (click)="addCompany()">Add Company</button>
+</fieldset>
+
+
+<ul>
+  <li *ngFor="let company of companies">
+    <a [routerLink]="['/vacancy']" (click)="getCompanyId(company.id)">
+      {{company.id}} - {{company.name}}.  {{company.description}}.
+      {{company.city}}. {{company.address}} 
+    </a>
+      <button (click)="deleteCompany(company.id)">X</button>
+  </li>
+</ul>
